@@ -26,3 +26,6 @@ en:
         path: path
         elements: elements
         save: Save
+        key: Key
+        type: Type
+        content: Content

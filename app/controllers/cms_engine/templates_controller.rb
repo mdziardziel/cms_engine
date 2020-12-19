@@ -15,7 +15,7 @@ module CmsEngine
 
     # GET /templates/new
     def new
-      @template = Template.new
+      @template = Template.new(elements: [Element.new])
     end
 
     # GET /templates/1/edit
@@ -24,10 +24,11 @@ module CmsEngine
 
     # POST /templates
     def create
+      byebug
       @template = Template.new(template_params)
 
       if @template.save
-        redirect_to @template, notice: 'Template was successfully created.'
+        redirect_to templates_url, notice: 'Template was successfully created.'
       else
         render :new
       end

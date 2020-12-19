@@ -21,10 +21,23 @@
     <%= form.text_field :path, class: 'form-control'  %>
   </div>
 
-  <div class='form-group'>
-    <%= form.label t('cms_engine.templates.form.elements') %>
-    <%= form.text_field :elements, class: 'form-control'  %>
-  </div>
+
+  <% template.elements.each do |element| %>
+    <div class='form-group'>
+      <%= form.label t('cms_engine.templates.form.key') %>
+      <%= form.text_field 'elements[][key]', class: 'form-control', value: element.key  %>
+    </div>
+
+    <div class='form-group'>
+      <%= form.label t('cms_engine.templates.form.type') %>
+      <%= form.text_field 'elements[][type]', class: 'form-control', value: element.type  %>
+    </div>
+
+    <div class='form-group'>
+      <%= form.label t('cms_engine.templates.form.content') %>
+      <%= form.text_field 'elements[][content]', class: 'form-control', value: element.content  %>
+    </div>
+  <% end %>
   <br>
   <%= form.submit t('cms_engine.templates.form.save'), class: 'btn btn-primary' %>
 <% end %>
