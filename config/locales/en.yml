@@ -24,7 +24,7 @@ en:
         errors_message: 'prohibited this template from being saved:'
         name: name
         path: path
-        elements: elements
+        elements: Elements
         save: Save
         key: Key
         type: Type
