@@ -1,0 +1,39 @@
+<% if notice.present? %>
+  <p id="notice" class='alert alert-primary'><%= notice %></p>
+<% end %>
+
+<div class='container'>
+  <div class="row">
+    <div class="col">
+      <h1><%= t('cms_engine.resources.index.title')%></h1>
+    </div>
+    <div class="col right-center">
+      <%= link_to t('cms_engine.resources.index.create'), new_resource_path, class: 'float-right align-middle btn btn-primary' %>
+    </div>
+
+  </div>
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t('cms_engine.resources.index.name') %></th>
+          <th><%= t('cms_engine.resources.index.path') %></th>
+          <th><%= t('cms_engine.resources.index.last_edit') %></th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @resources.each do |resource| %>
+          <tr>
+            <td><%= resource.name %></td>
+            <td><%= resource.path %></td>
+            <td><%= resource.updated_at %></td>
+            <td><%= link_to t('cms_engine.resources.index.edit'), edit_resource_path(resource) %></td>
+            <td><%= link_to t('cms_engine.resources.index.destroy'), resource, method: :delete, data: { confirm: t('cms_engine.resources.index.destroy_confirmation') } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

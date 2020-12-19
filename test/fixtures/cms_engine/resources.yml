@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  template: one
+  name: MyString
+  path: MyString
+  published: false
+  elements: 
+  language: MyString
+
+two:
+  template: two
+  name: MyString
+  path: MyString
+  published: false
+  elements: 
+  language: MyString
