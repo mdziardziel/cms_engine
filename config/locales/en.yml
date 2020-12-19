@@ -1,4 +1,10 @@
 en:
+  activerecord:
+    errors:
+      models:
+        cms_engine:
+          template:
+            uniqueness: has to be uniq
   layouts:
     cms_engine:
       sidebar:
