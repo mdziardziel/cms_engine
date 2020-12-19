@@ -1,4 +1,4 @@
-<h1>New Resource</h1>
+<h1><%= t('cms_engine.resources.new.title')%></h1>
 
 <%= form_with(model: @resource, local: true) do |form| %>
   <% if @resource.errors.any? %>

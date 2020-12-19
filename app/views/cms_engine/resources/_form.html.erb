@@ -1,7 +1,7 @@
 <%= form_with(model: @resource, local: true) do |form| %>
   <% if @resource.errors.any? %>
     <div id="error_explanation" class='alert alert-danger'>
-      <h2><%= pluralize(@resource.errors.count, "error") %> <%= t('cms_engine.templates.form.errors_message') %></h2>
+      <h2><%= pluralize(@resource.errors.count, "error") %> <%= t('cms_engine.resources.form.errors_message') %></h2>
 
       <ul>
       <% @resource.errors.full_messages.each do |message| %>
@@ -12,12 +12,12 @@
   <% end %>
 
   <div class='form-group'>
-    <%= form.label t('cms_engine.templates.form.name') %>
+    <%= form.label t('cms_engine.resources.form.name') %>
     <%= form.text_field :name, class: 'form-control' %>
   </div>
 
   <div class='form-group'>
-    <%= form.label t('cms_engine.templates.form.path') %>
+    <%= form.label t('cms_engine.resources.form.path') %>
     <%= form.text_field :path, class: 'form-control'  %>
   </div>
 
@@ -28,42 +28,42 @@
   <br>
   <div class="card">
     <div id='elements-card' class="card-body">
-      <h5 class="card-title"><%= t('cms_engine.templates.form.elements') %></h5>
+      <h5 class="card-title"><%= t('cms_engine.resources.form.elements') %></h5>
       <% @resource.elements.each do |element| %>
         <div class="row element-row">
           <div class="col">
             <div class='form-group'>
-              <%= form.label t('cms_engine.templates.form.key') %>
+              <%= form.label t('cms_engine.resources.form.key') %>
               <%= form.text_field 'elements[][key]', class: 'form-control', value: element.key  %>
             </div>
           </div>
       
           <div class="col">
             <div class='form-group'>
-              <%= form.label t('cms_engine.templates.form.type') %>
+              <%= form.label t('cms_engine.resources.form.type') %>
               <%= form.select 'elements[][type]', options_for_select(CmsEngine::Element::TYPES, element.type), {}, class: 'form-control' %>
             </div>
           </div>
       
           <div class="col">
             <div class='form-group'>
-              <%= form.label t('cms_engine.templates.form.content') %>
+              <%= form.label t('cms_engine.resources.form.content') %>
               <%= form.text_field 'elements[][content]', class: 'form-control', value: element.content  %>
             </div> 
           </div>
 
           <div class="col left-center">
             <div type="button" class="btn btn-danger remove-element">
-              <%= t('cms_engine.templates.form.remove') %>
+              <%= t('cms_engine.resources.form.remove') %>
             </div>
           </div>
         </div>
       <% end %>
       <button type="button" id='add-element' class="btn btn-secondary float-right">
-        <%= t('cms_engine.templates.form.add') %>
+        <%= t('cms_engine.resources.form.add') %>
       </button>
     </div>
   </div>
   <br>
-  <%= form.submit t('cms_engine.templates.form.save'), class: 'btn btn-primary' %>
+  <%= form.submit t('cms_engine.resources.form.save'), class: 'btn btn-primary' %>
 <% end %>
