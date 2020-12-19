@@ -5,3 +5,14 @@ en:
         templates: Templates
         resources: Resources
         account: Account
+  cms_engine:
+    templates:
+      index:
+        name: Name
+        path: Path
+        last_edited: Last edited
+        edit: Edit
+        destroy: Delete
+        destroy_confirmation: Are you sure?
+        title: Templates
+        create: Create

@@ -4,10 +4,10 @@
 <div class='container'>
   <div class="row">
     <div class="col">
-      <h2>Templates</h2>
+      <h1><%= t('cms_engine.templates.index.title')%></h1>
     </div>
     <div class="col">
-      <%= link_to 'Create', new_template_path, class: 'float-right align-middle btn btn-secondary' %>
+      <%= link_to t('cms_engine.templates.index.create'), new_template_path, class: 'float-right align-middle btn btn-secondary' %>
     </div>
 
   </div>
@@ -15,9 +15,9 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Path</th>
-          <th>Last edit</th>
+          <th><%= t('cms_engine.templates.index.name') %></th>
+          <th><%= t('cms_engine.templates.index.path') %></th>
+          <th><%= t('cms_engine.templates.index.last_edit') %></th>
           <th colspan="2"></th>
         </tr>
       </thead>
@@ -28,8 +28,8 @@
             <td><%= template.name %></td>
             <td><%= template.path %></td>
             <td><%= template.updated_at %></td>
-            <td><%= link_to 'Edit', edit_template_path(template) %></td>
-            <td><%= link_to 'Destroy', template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to t('cms_engine.templates.index.edit'), edit_template_path(template) %></td>
+            <td><%= link_to t('cms_engine.templates.index.destroy'), template, method: :delete, data: { confirm: t('cms_engine.templates.index.destroy_confirmation') } %></td>
           </tr>
         <% end %>
       </tbody>
