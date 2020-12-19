@@ -25,24 +25,40 @@
     <div id='elements-card' class="card-body">
       <h5 class="card-title"><%= t('cms_engine.templates.form.elements') %></h5>
       <% template.elements.each do |element| %>
-        <div class="input-group">
-          <div class='form-group'>
-            <%= form.label t('cms_engine.templates.form.key') %>
-            <%= form.text_field 'elements[][key]', class: 'form-control', value: element.key  %>
+        <div class="row element-row">
+          <div class="col">
+            <div class='form-group'>
+              <%= form.label t('cms_engine.templates.form.key') %>
+              <%= form.text_field 'elements[][key]', class: 'form-control', value: element.key  %>
+            </div>
           </div>
       
-          <div class='form-group'>
-            <%= form.label t('cms_engine.templates.form.type') %>
-            <%= form.select 'elements[][type]', CmsEngine::Element::TYPES, {}, class: 'form-control', value: element.type  %>
+          <div class="col">
+            <div class='form-group'>
+              <%= form.label t('cms_engine.templates.form.type') %>
+              <%= form.select 'elements[][type]', CmsEngine::Element::TYPES, {}, class: 'form-control', value: element.type  %>
+            </div>
           </div>
       
-          <!--<div class='form-group'>
-            <%= form.label t('cms_engine.templates.form.content') %>
-            <%= form.text_field 'elements[][content]', class: 'form-control', value: element.content  %>
-          </div> --->
+          <!--
+          <div class="col">
+            <div class='form-group'>
+              <%= form.label t('cms_engine.templates.form.content') %>
+              <%= form.text_field 'elements[][content]', class: 'form-control', value: element.content  %>
+            </div> 
+          </div>
+          --->
+
+          <div class="col">
+            <div type="button" class="btn btn-danger remove-element">
+              <%= t('cms_engine.templates.form.remove') %>
+            </div>
+          </div>
         </div>
       <% end %>
-      <button type="button" id='add-element' class="btn btn-secondary float-right"><%= t('cms_engine.templates.form.add') %></button>
+      <button type="button" id='add-element' class="btn btn-secondary float-right">
+        <%= t('cms_engine.templates.form.add') %>
+      </button>
     </div>
   </div>
   <br>
