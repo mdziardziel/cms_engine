@@ -15,7 +15,7 @@ module CmsEngine
 
     # GET /resources/new
     def new
-      @resource = Resource.new
+      @resource = Resource.new(elements: [Element.new])
     end
 
     # GET /resources/1/edit
@@ -27,7 +27,7 @@ module CmsEngine
       @resource = Resource.new(resource_params)
 
       if @resource.save
-        redirect_to @resource, notice: 'Resource was successfully created.'
+        redirect_to edit_resource_path(@resource), notice: 'Resource was successfully created.'
       else
         render :new
       end
@@ -36,7 +36,7 @@ module CmsEngine
     # PATCH/PUT /resources/1
     def update
       if @resource.update(resource_params)
-        redirect_to @resource, notice: 'Resource was successfully updated.'
+        redirect_to resource_url, notice: 'Resource was successfully updated.'
       else
         render :edit
       end
@@ -56,7 +56,7 @@ module CmsEngine
 
       # Only allow a trusted parameter "white list" through.
       def resource_params
-        params.require(:resource).permit(:template_id, :name, :path, :published, :elements, :language)
+        params.require(:resource).permit(:cms_engine_template_id, :name, :path, :published, :language, elements: [:key, :type, :content])
       end
   end
 end
