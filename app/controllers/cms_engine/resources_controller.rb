@@ -25,6 +25,7 @@ module CmsEngine
     # POST /resources
     def create
       @resource = Resource.new(resource_params)
+      @resource.elements = @resource.template.elements.map(&:attributes)
 
       if @resource.save
         redirect_to edit_resource_path(@resource), notice: 'Resource was successfully created.'
@@ -36,7 +37,7 @@ module CmsEngine
     # PATCH/PUT /resources/1
     def update
       if @resource.update(resource_params)
-        redirect_to resource_url, notice: 'Resource was successfully updated.'
+        redirect_to resources_url, notice: 'Resource was successfully updated.'
       else
         render :edit
       end
