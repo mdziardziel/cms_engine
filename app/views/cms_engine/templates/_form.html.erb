@@ -36,7 +36,7 @@
           <div class="col">
             <div class='form-group'>
               <%= form.label t('cms_engine.templates.form.type') %>
-              <%= form.select 'elements[][type]', CmsEngine::Element::TYPES, {}, class: 'form-control', value: element.type  %>
+              <%= form.select 'elements[][type]', options_for_select(CmsEngine::Element::TYPES, element.type), {}, class: 'form-control' %>
             </div>
           </div>
       
