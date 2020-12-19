@@ -17,6 +17,7 @@
       <thead>
         <tr>
           <th><%= t('cms_engine.resources.index.name') %></th>
+          <th><%= t('cms_engine.resources.index.template') %></th>
           <th><%= t('cms_engine.resources.index.path') %></th>
           <th><%= t('cms_engine.resources.index.last_edit') %></th>
           <th colspan="2"></th>
@@ -27,7 +28,8 @@
         <% @resources.each do |resource| %>
           <tr>
             <td><%= resource.name %></td>
-            <td><%= resource.path %></td>
+            <td><%= resource.template.name %></td>
+            <td><%= resource.full_path %></td>
             <td><%= resource.updated_at %></td>
             <td><%= link_to t('cms_engine.resources.index.edit'), edit_resource_path(resource) %></td>
             <td><%= link_to t('cms_engine.resources.index.destroy'), resource, method: :delete, data: { confirm: t('cms_engine.resources.index.destroy_confirmation') } %></td>

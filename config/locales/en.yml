@@ -47,6 +47,7 @@ en:
         destroy_confirmation: Are you sure?
         title: Resources
         create: Create
+        template: Template
       new:
         title: new Resource
       edit: 
