@@ -15,7 +15,7 @@ module CmsEngine
 
     # GET /templates/new
     def new
-      @template = Template.new
+      @template = Template.new(elements: [Element.new])
     end
 
     # GET /templates/1/edit
@@ -27,7 +27,7 @@ module CmsEngine
       @template = Template.new(template_params)
 
       if @template.save
-        redirect_to @template, notice: 'Template was successfully created.'
+        redirect_to templates_url, notice: 'Template was successfully created.'
       else
         render :new
       end
@@ -36,7 +36,7 @@ module CmsEngine
     # PATCH/PUT /templates/1
     def update
       if @template.update(template_params)
-        redirect_to @template, notice: 'Template was successfully updated.'
+        redirect_to templates_url, notice: 'Template was successfully updated.'
       else
         render :edit
       end
@@ -56,7 +56,7 @@ module CmsEngine
 
       # Only allow a trusted parameter "white list" through.
       def template_params
-        params.require(:template).permit(:name, :path, :elements)
+        params.require(:template).permit(:name, :path, elements: [:key, :type, :content])
       end
   end
 end

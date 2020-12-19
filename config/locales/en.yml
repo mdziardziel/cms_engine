@@ -16,3 +16,18 @@ en:
         destroy_confirmation: Are you sure?
         title: Templates
         create: Create
+      new:
+        title: new Template
+      edit: 
+        title: edit Template
+      form:
+        errors_message: 'prohibited this template from being saved:'
+        name: name
+        path: path
+        elements: Elements
+        save: Save
+        key: Key
+        type: Type
+        content: Content
+        add: Add
+        remove: Remove
