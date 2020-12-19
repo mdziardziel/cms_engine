@@ -1,3 +1,3 @@
 CmsEngine::Engine.routes.draw do
-  resources :templates
+  resources :templates, only: %i[index new create edit update destroy]
 end
