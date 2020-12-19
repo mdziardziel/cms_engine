@@ -32,11 +32,11 @@
     <%= form.label :template %>
     <%= form.select :cms_engine_template_id, CmsEngine::Template.pluck(:name, :id), {}, class: 'form-control' %>
   </div>
-  
+  <br>
   <div class='form-group'>
     <%= form.check_box :published, checked: @resource.published, class: 'form-check-input' %>
     <%= form.label t('cms_engine.resources.form.published'), class: 'form-check-label' %>
   </div> 
   <br>
-  <%= form.submit t('cms_engine.templates.form.save'), class: 'btn btn-primary' %>
+  <div class='right-center'><%= form.submit t('cms_engine.templates.form.save'), class: 'btn btn-primary' %></div>
 <% end %>
