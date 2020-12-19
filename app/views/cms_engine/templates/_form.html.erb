@@ -1,6 +1,6 @@
 <%= form_with(model: template, local: true) do |form| %>
   <% if template.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class='alert alert-danger'>
       <h2><%= pluralize(template.errors.count, "error") %> <%= t('cms_engine.templates.form.errors_message') %></h2>
 
       <ul>
@@ -49,7 +49,7 @@
           </div>
           --->
 
-          <div class="col">
+          <div class="col left-center">
             <div type="button" class="btn btn-danger remove-element">
               <%= t('cms_engine.templates.form.remove') %>
             </div>
