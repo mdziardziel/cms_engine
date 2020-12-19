@@ -1,5 +1,5 @@
 CmsEngine::Engine.routes.draw do
-  resources :templates
+  resources :templates, only: %i[index new create edit update destroy]
 
   devise_for :users, class_name: "CmsEngine::User", module: 'devise', skip: [:passwords]
 

@@ -1,13 +1,14 @@
-<p id="notice"><%= notice %></p>
-
+<% if notice.present? %>
+  <p id="notice" class='alert alert-primary'><%= notice %></p>
+<% end %>
 
 <div class='container'>
   <div class="row">
     <div class="col">
       <h1><%= t('cms_engine.templates.index.title')%></h1>
     </div>
-    <div class="col">
-      <%= link_to t('cms_engine.templates.index.create'), new_template_path, class: 'float-right align-middle btn btn-secondary' %>
+    <div class="col right-center">
+      <%= link_to t('cms_engine.templates.index.create'), new_template_path, class: 'float-right align-middle btn btn-primary' %>
     </div>
 
   </div>
