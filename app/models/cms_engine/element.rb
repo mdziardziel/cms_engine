@@ -1,9 +1,15 @@
 module CmsEngine
   class Element
-    include ActiveRecord::Validations
+    include ActiveModel::Model
 
     TYPES = %i[html string text int float]
+    TYPES_STRING = TYPES.map(&:to_s)
+
     attr_accessor :key, :type, :content
+
+    validates :key, length: 2..255
+    validates :type, inclusion: { in: TYPES_STRING }
+
 
     def initialize(attributes = {})
       attributes.each do |name, value|
