@@ -1,0 +1,7 @@
+en:
+  layouts:
+    cms_engine:
+      sidebar:
+        templates: Templates
+        resources: Resources
+        account: Account
