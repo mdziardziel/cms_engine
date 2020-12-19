@@ -26,4 +26,6 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   spec.add_dependency "rails", "~> 5.2.4"
+  spec.add_dependency 'bootstrap', '~> 5.0.0.alpha3'
+  spec.add_dependency 'jquery-rails'
 end
