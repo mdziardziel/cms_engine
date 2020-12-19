@@ -22,7 +22,7 @@
   </div>
   <br>
   <div class="card">
-    <div class="card-body">
+    <div id='elements-card' class="card-body">
       <h5 class="card-title"><%= t('cms_engine.templates.form.elements') %></h5>
       <% template.elements.each do |element| %>
         <div class="input-group">
@@ -42,6 +42,7 @@
           </div> --->
         </div>
       <% end %>
+      <button type="button" id='add-element' class="btn btn-secondary float-right"><%= t('cms_engine.templates.form.add') %></button>
     </div>
   </div>
   <br>

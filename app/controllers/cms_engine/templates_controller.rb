@@ -36,7 +36,7 @@ module CmsEngine
     # PATCH/PUT /templates/1
     def update
       if @template.update(template_params)
-        redirect_to @template, notice: 'Template was successfully updated.'
+        redirect_to templates_url, notice: 'Template was successfully updated.'
       else
         render :edit
       end
