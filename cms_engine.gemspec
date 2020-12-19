@@ -28,4 +28,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", "~> 5.2.4"
   spec.add_dependency 'bootstrap', '~> 5.0.0.alpha3'
   spec.add_dependency 'jquery-rails'
+  spec.add_dependency 'rails-i18n'
 end
