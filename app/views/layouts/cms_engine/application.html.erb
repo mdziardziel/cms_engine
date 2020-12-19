@@ -9,8 +9,17 @@
   <%= javascript_include_tag "cms_engine/application" %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="container">
+    <div class="container">
+      <div class="row">
+        <div class="col-1 col-md-2 col-sm-4 navbar-container">
+          1 of 2
+        </div>
+        <div class="col-11 col-md-10 col-sm-8 content-container">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
