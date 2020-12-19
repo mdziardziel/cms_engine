@@ -24,7 +24,6 @@ module CmsEngine
 
     # POST /templates
     def create
-      byebug
       @template = Template.new(template_params)
 
       if @template.save
@@ -57,7 +56,7 @@ module CmsEngine
 
       # Only allow a trusted parameter "white list" through.
       def template_params
-        params.require(:template).permit(:name, :path, :elements)
+        params.require(:template).permit(:name, :path, elements: [:key, :type, :content])
       end
   end
 end
