@@ -9,15 +9,13 @@
   <%= javascript_include_tag "cms_engine/application" %>
 </head>
 <body>
-  <div class="container">
-    <div class="container">
-      <div class="row">
-        <div class="col-1 col-md-2 col-sm-4 navbar-container">
-          <%= render 'layouts/cms_engine/sidebar'%>
-        </div>
-        <div class="col-11 col-md-10 col-sm-8 content-container">
-          <%= yield %>
-        </div>
+  <div class="container main-container">
+    <div class="row">
+      <div class="col-1 col-md-2 col-sm-3 col-12 navbar-container">
+        <%= render 'layouts/cms_engine/sidebar'%>
+      </div>
+      <div class="col-11 col-md-10 col-sm-9 col-12 content-container">
+        <%= yield %>
       </div>
     </div>
   </div>

@@ -2,7 +2,9 @@
 // All this logic will automatically be available in application.js.
 
 const removeElement = (self) => {
-  $(self).closest('.element-row').remove();
+  if ($('.element-row').length > 1) {
+    $(self).closest('.element-row').remove();
+  }
 }
 
 const addElement = () => {
