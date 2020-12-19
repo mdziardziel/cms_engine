@@ -7,17 +7,17 @@ require "cms_engine/version"
 Gem::Specification.new do |spec|
   spec.name        = "cms_engine"
   spec.version     = CmsEngine::VERSION
-  spec.authors     = ["mdziardziel"]
-  spec.email       = ["mdziardziel@gmail.com"]
-  spec.homepage    = "TODO"
-  spec.summary     = "TODO: Summary of CmsEngine."
-  spec.description = "TODO: Description of CmsEngine."
+  spec.authors     = %w[mdziardziel Haradd]
+  spec.email       = %w[mdziardziel@gmail.com] #TODO
+  spec.homepage    = "http://localhost" #TODO
+  spec.summary     = "Summary of CmsEngine." #TODOD
+  spec.description = "Description of CmsEngine." #TODO
   spec.license     = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+    spec.metadata["allowed_push_host"] = "Set to 'http://mygemserver.com'" #TODO
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
