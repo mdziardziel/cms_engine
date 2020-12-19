@@ -63,3 +63,5 @@ en:
         content: Content
         add: Add
         remove: Remove
+        published: Published?
+        language: language
