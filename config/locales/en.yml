@@ -11,6 +11,7 @@ en:
         templates: Templates
         resources: Resources
         account: Account
+        logout: Logout
   cms_engine:
     templates:
       index:
