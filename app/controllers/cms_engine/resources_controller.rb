@@ -6,7 +6,7 @@ module CmsEngine
 
     # GET /resources
     def index
-      @resources = Resource.all
+      @resources = Resource.all.order(:cms_engine_template_id, updated_at: :desc)
     end
 
     # GET /resources/1
