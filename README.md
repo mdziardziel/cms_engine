@@ -29,7 +29,8 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 
 ## Hooking into app
-1. Place `mount CmsEngine::Engine, at: "/cms"` in your `routes.rb`
-2. Copy migrations by typing `bin/rails cms_engine:install:migrations` in console
-3. Run migrations in `cms_engine` scope `bin/rails db:migrate SCOPE=cms_engine`
-4. have fun!
+1. add `cms_engine` to gemfile, run `bundle install`
+2. Place `mount CmsEngine::Engine, at: "/cms"` in your `routes.rb`
+3. Copy migrations by typing `bin/rails cms_engine:install:migrations` in console
+4. Run migrations in `cms_engine` scope `bin/rails db:migrate SCOPE=cms_engine`
+5. have fun!
