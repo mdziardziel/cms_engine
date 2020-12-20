@@ -1,3 +1,4 @@
+require 'devise'
 require "cms_engine/engine"
 require 'bootstrap'
 require 'jquery-rails'

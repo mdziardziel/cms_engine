@@ -1,0 +1,34 @@
+<h2><%= t('cms_engine.account.edit.account') %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class='form-group mt-5'>
+    <%= form.label :email %>
+    <%= form.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+  </div>
+
+
+  <div class="form-group mt-5">
+    <%= form.label t('cms_engine.account.edit.password') %> <i>(<%= t('cms_engine.account.edit.leave_blank_info') %>)</i><br />
+    <%= form.password_field :password, autocomplete: t('cms_engine.account.edit.new_password'), class: 'form-control' %>
+    <% if @minimum_password_length %>
+      <em><%= @minimum_password_length %> <%= t('cms_engine.account.edit.characters_minimum') %></em>
+    <% end %>
+  </div>
+
+  <div class="form-group mt-4">
+    <%= form.label t('cms_engine.account.edit.password_confirmation') %> <br />
+    <%= form.password_field :password_confirmation, autocomplete: t('cms_engine.account.edit.new_password'), class: 'form-control' %>
+  </div>
+
+  <div class="form-group mt-5">
+    <%= form.label t('cms_engine.account.edit.current_password') %> <i>(<%= t('cms_engine.account.edit.current_password_required') %>)</i><br />
+    <%= form.password_field :current_password, autocomplete: t('cms_engine.account.edit.current_password'), class: 'form-control' %>
+  </div>
+
+  <div class='right-center mt-5'>
+    <%= form.submit t('cms_engine.account.edit.update'), class: 'btn btn-primary' %>
+  </div>
+<% end %>
+

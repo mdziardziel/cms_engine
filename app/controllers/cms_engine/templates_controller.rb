@@ -3,6 +3,7 @@ require_dependency "cms_engine/application_controller"
 module CmsEngine
   class TemplatesController < ApplicationController
     before_action :set_template, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!
 
     # GET /templates
     def index

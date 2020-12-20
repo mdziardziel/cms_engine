@@ -3,6 +3,7 @@ require_dependency "cms_engine/application_controller"
 module CmsEngine
   class ResourcesController < ApplicationController
     before_action :set_resource, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!
 
     # GET /resources
     def index
