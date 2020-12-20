@@ -2,6 +2,9 @@ CmsEngine::Engine.routes.draw do
   resources :resources, only: %i[index new create edit update destroy]
   resources :templates, only: %i[index new create edit update destroy]
 
+  get 'api/:language/:template_path', to: 'api/resources#index', defaults: { format: :json }
+  get 'api/:language/:template_path/:resource_path', to: 'api/resources#show', defaults: { format: :json }
+
   devise_for :users, class_name: "CmsEngine::User", module: 'devise', skip: [:passwords]
 
   # TODO - uncomment below, run `rake routes` -> generated routes should work - currently it doesn't work
