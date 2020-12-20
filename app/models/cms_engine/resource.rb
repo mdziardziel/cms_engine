@@ -1,6 +1,10 @@
+require 'paper_trail'
+
 module CmsEngine
   class Resource < ApplicationRecord
     include CmsEngine::HasManyElements
+
+    has_paper_trail versions: { class_name: 'CmsEngine::Version' }, on: [:update]
 
     AVAILABLE_LANGUAGES = %w[pl en de ru]
     
