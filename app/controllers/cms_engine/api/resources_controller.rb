@@ -11,7 +11,7 @@ module CmsEngine
 
 
       def show
-        resource = resources.find_by(path: params[:resource_path])
+        resource = resources.find_by(path: params[:resource_path]) || raise(ActiveRecord::RecordNotFound)
 
         render json: resource
       end
@@ -23,7 +23,7 @@ module CmsEngine
       end
 
       def template
-        @template ||= Template.find_by(path: params[:template_path])
+        @template ||= Template.find_by(path: params[:template_path]) || raise(ActiveRecord::RecordNotFound)
       end
 
       def authorize_request
