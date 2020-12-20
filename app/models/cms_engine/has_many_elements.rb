@@ -8,8 +8,8 @@ module CmsEngine
 
     def elements
       memorized_elements = super
-      elements = memorized_elements.is_a?(String) ? JSON.parse(memorized_elements) : memorized_elements
-      elements.map { |element| Element.new(element.merge(source: self))}
+      raw_elements = memorized_elements.is_a?(String) ? JSON.parse(memorized_elements) : memorized_elements
+      raw_elements.map { |element| Element.new(element.merge(source: self))}
     end
 
     private
