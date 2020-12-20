@@ -38,3 +38,31 @@ en:
         content: Content
         add: Add
         remove: Remove
+    resources:
+      index:
+        name: Name
+        path: Path
+        last_edited: Last edited
+        edit: Edit
+        destroy: Delete
+        destroy_confirmation: Are you sure?
+        title: Resources
+        create: Create
+        template: Template
+      new:
+        title: new Resource
+      edit: 
+        title: edit Resource
+      form:
+        errors_message: 'prohibited this resource from being saved:'
+        name: name
+        path: path
+        elements: Elements
+        save: Save
+        key: Key
+        type: Type
+        content: Content
+        add: Add
+        remove: Remove
+        published: Published?
+        language: language

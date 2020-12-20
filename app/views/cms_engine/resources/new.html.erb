@@ -1,0 +1,42 @@
+<h1><%= t('cms_engine.resources.new.title')%></h1>
+
+<%= form_with(model: @resource, local: true) do |form| %>
+  <% if @resource.errors.any? %>
+    <div id="error_explanation" class='alert alert-danger'>
+      <h2><%= pluralize(@resource.errors.count, "error") %> <%= t('cms_engine.templates.form.errors_message') %></h2>
+
+      <ul>
+      <% @resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='form-group'>
+    <%= form.label t('cms_engine.templates.form.name') %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= form.label t('cms_engine.templates.form.path') %>
+    <%= form.text_field :path, class: 'form-control'  %>
+  </div>
+
+  <div class='form-group'>
+    <%= form.label :language %>
+    <%= form.select :language, CmsEngine::Resource::AVAILABLE_LANGUAGES, {}, class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= form.label :template %>
+    <%= form.select :cms_engine_template_id, CmsEngine::Template.pluck(:name, :id), {}, class: 'form-control' %>
+  </div>
+  <br>
+  <div class='form-group'>
+    <%= form.check_box :published, checked: @resource.published, class: 'form-check-input' %>
+    <%= form.label t('cms_engine.resources.form.published'), class: 'form-check-label' %>
+  </div> 
+  <br>
+  <div class='right-center'><%= form.submit t('cms_engine.templates.form.save'), class: 'btn btn-primary' %></div>
+<% end %>
