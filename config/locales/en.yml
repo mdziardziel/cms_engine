@@ -13,6 +13,21 @@ en:
         account: Account
         logout: Logout
   cms_engine:
+    account:
+      edit:
+        title: Account
+        update: Update
+        password: password
+        password_confirmation: password confirmation
+        new_password: new password
+        current_password: current password
+        leave_blank_info: leave blank if you don't want to change it
+        current_password_required: we need your current password to confirm your changes
+      login_form:
+        title: Log in
+        password: password
+        current_password: current password
+        remember_me: remember me
     templates:
       index:
         name: Name
