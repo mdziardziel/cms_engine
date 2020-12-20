@@ -12,7 +12,7 @@ module CmsEngine
       return true if signature_correct?
 
       false
-    rescue JWT::VerificationError
+    rescue JWT::VerificationError, JWT::DecodeError
       false
     end
 
