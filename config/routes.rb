@@ -1,6 +1,7 @@
 CmsEngine::Engine.routes.draw do
   resources :resources, only: %i[index new create edit update destroy]
   resources :templates, only: %i[index new create edit update destroy]
+  resources :public_keys, only: %i[edit update]
 
   get 'api/:language/:template_path', to: 'api/resources#index', defaults: { format: :json }
   get 'api/:language/:template_path/:resource_path', to: 'api/resources#show', defaults: { format: :json }

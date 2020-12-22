@@ -12,6 +12,7 @@ en:
         resources: Resources
         account: Account
         logout: Logout
+        authorization: 
   cms_engine:
     account:
       edit:
@@ -81,3 +82,14 @@ en:
         remove: Remove
         published: Published?
         language: language
+    public_keys:
+      form:
+        errors_message: 'prohibited this resource from being saved:'
+        save: Save
+        body: Public key
+        algorithm: Algorithm
+      edit:
+        title: Authorization
+        subtitle: Public key is used for decoding signed keys.
+      update:
+        success: Public key was successfully updated.
