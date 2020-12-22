@@ -21,9 +21,9 @@ module CmsEngine
     attr_reader :request
 
     def signature_correct?
-      return false if jwt.nil?
+      return false if jwt.nil? || public_key_body.nil?
 
-      JWT.decode(jwt, public_key, true, { algorithm: algorithm })
+      JWT.decode(jwt, public_key_body, true, { algorithm: algorithm })
     end
 
     def jwt
@@ -40,25 +40,18 @@ module CmsEngine
       params[:jwt] || params[:authorization]
     end
 
-    def public_key
-      # temporary hardcoded, has to be changed to configurable by admin in the future
-      key = <<~EOS
-        -----BEGIN PUBLIC KEY-----
-        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnzyis1ZjfNB0bBgKFMSv
-        vkTtwlvBsaJq7S5wA+kzeVOVpVWwkWdVha4s38XM/pa/yr47av7+z3VTmvDRyAHc
-        aT92whREFpLv9cj5lTeJSibyr/Mrm/YtjCZVWgaOYIhwrXwKLqPr/11inWsAkfIy
-        tvHWTxZYEcXLgAXFuUuaS3uF9gEiNQwzGTU1v0FqkqTBr4B8nW3HCN47XUu0t8Y0
-        e+lf4s4OxQawWD79J9/5d3Ry0vbV3Am1FtGJiJvOwRsIfVChDpYStTcHTCMqtvWb
-        V6L11BWkpzGXSW4Hv43qa+GSYOD2QU68Mb59oSk2OB+BtOLpJofmbGEGgvmwyCI9
-        MwIDAQAB
-        -----END PUBLIC KEY-----
-      EOS
-      OpenSSL::PKey::RSA.new(key).public_key
+    def public_key_body
+      @public_key_body ||= OpenSSL::PKey::RSA.new(public_key.body)&.public_key
+    rescue OpenSSL::PKey::RSAError
+      nil
     end
 
     def algorithm
-      # temporary hardcoded, has to be changed to configurable by admin in the future
-      'RS512'
+      public_key&.algorithm
+    end
+
+    def public_key
+      @public_key ||= PublicKey.first
     end
   end
 end
