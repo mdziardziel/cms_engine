@@ -89,3 +89,9 @@
     </div>
   </div>
 </div>
+
+<%= form_for :nothing, url: '', html: { class: 'hidden-form' } do |f| %>
+  <% CmsEngine::Element::TYPES.each do |type|%>
+    <%= render_input(type, f, id: "hidden-#{type}-input", type: 'hidden', class: 'form-control hidden-form') %>
+  <% end %>
+<% end %>
