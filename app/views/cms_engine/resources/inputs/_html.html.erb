@@ -1,1 +1,1 @@
-<%= form.text_area 'elements[][content]', options %>
+<%= form.cktext_area 'elements[][content]', options.merge(ckeditor: { language: 'uk', toolbar: 'mini'}) %>
