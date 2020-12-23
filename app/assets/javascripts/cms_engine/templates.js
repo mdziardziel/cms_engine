@@ -27,5 +27,18 @@ $(window).on('load', function() {
   $(".remove-element").click(function() {
     removeElement(this);
   });
+
+  $(".element-type-selector").change(function() {
+    const type = $(this).val()
+    const typeInputSelector = `#hidden-${type}-input:hidden`
+    const typeInput = $(typeInputSelector).clone()
+    const input = $(this).closest('.element-row').find('.content-input')
+    const inputId = input.attr('id')
+    typeInput.removeAttr('type')
+    typeInput.attr('id', inputId)
+    typeInput.removeClass('hidden-form')
+    typeInput.addClass('content-input')
+    input.replaceWith(typeInput)
+  })
 });
 

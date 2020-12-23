@@ -2,6 +2,7 @@ module CmsEngine
   class Element
     include ActiveModel::Model
 
+    # extending types array remember about adding new input in app/views/cms_engine/resources/inputs
     TYPES = %i[html string text int float]
     TYPES_STRING = TYPES.map(&:to_s)
 
