@@ -21,6 +21,10 @@ module CmsEngine
 
     # GET /resources/1/edit
     def edit
+      if params[:version_timestamp].present?
+        @resource = @resource.paper_trail.version_at(Time.zone.at(params[:version_timestamp].to_r))
+      end
+      @versions_datetimes = @resource.versions.order(created_at: :asc).pluck(:created_at).reverse
     end
 
     # POST /resources

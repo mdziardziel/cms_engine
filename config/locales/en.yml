@@ -69,6 +69,7 @@ en:
         title: new Resource
       edit: 
         title: edit Resource
+        versions: Versions
       form:
         errors_message: 'prohibited this resource from being saved:'
         name: name
