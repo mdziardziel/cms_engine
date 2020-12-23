@@ -1,0 +1,33 @@
+<% if notice.present? %>
+  <p id="notice" class='alert alert-primary'><%= notice %></p>
+<% end %>
+
+<h1><%= t('cms_engine.public_keys.edit.title')%></h1>
+<p><%= t('cms_engine.public_keys.edit.subtitle')%></p>
+
+<%= form_with(model: @public_key, local: true) do |form| %>
+  <% if @public_key.errors.any? %>
+    <div id="error_explanation" class='alert alert-danger'>
+      <h2><%= pluralize(@public_key.errors.count, "error") %> <%= t('cms_engine.public_keys.form.errors_message') %></h2>
+
+      <ul>
+      <% @public_key.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='form-group'>
+    <%= form.label t('cms_engine.public_keys.form.algorithm') %>
+    <%= form.select :algorithm, options_for_select(CmsEngine::PublicKey::ALGORITHMS, @public_key.algorithm), {}, class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= form.label t('cms_engine.public_keys.form.body') %>
+    <%= form.text_area :body, class: 'form-control', rows: 10 %>
+  </div>
+
+  <br>
+  <div class='right-center'><%= form.submit t('cms_engine.public_keys.form.save'), class: 'btn btn-primary' %></div>
+<% end %>

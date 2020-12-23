@@ -25,7 +25,7 @@
 
       <div class='form-group'>
         <%= form.label t('cms_engine.resources.form.language') %>
-        <%= form.select :lanuage, options_for_select(CmsEngine::Resource::AVAILABLE_LANGUAGES, @resource.language), {}, class: 'form-control' %>
+        <%= form.select :language, options_for_select(CmsEngine::Resource::AVAILABLE_LANGUAGES, @resource.language), {}, class: 'form-control' %>
       </div>
       <br>
       <div class="card">
