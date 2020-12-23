@@ -1,11 +1,11 @@
 module CmsEngine
   module ResourcesHelper
-    def render_input(input_type, default_value, form)
+    def render_input(input_type, form, options = {})
       input_path = "cms_engine/resources/inputs/#{input_type}"
       fallback_path = 'cms_engine/resources/inputs/string'
 
       partial_path = partial_or_fallback_path(input_path, fallback_path)
-      render(partial_path, default_value: default_value, form: form)
+      render(partial_path, form: form, options: options)
     end
 
     private

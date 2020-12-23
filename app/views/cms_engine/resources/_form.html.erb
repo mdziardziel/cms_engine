@@ -43,14 +43,14 @@
               <div class="col">
                 <div class='form-group'>
                   <%= form.label t('cms_engine.resources.form.type') %>
-                  <%= form.select 'elements[][type]', options_for_select(CmsEngine::Element::TYPES, element.type), {}, class: 'form-control' %>
+                  <%= form.select 'elements[][type]', options_for_select(CmsEngine::Element::TYPES, element.type), {}, class: 'form-control element-type-selector' %>
                 </div>
               </div>
           
               <div class="col">
                 <div class='form-group'>
                   <%= form.label t('cms_engine.resources.form.content') %>
-                  <%= render_input(element.type, element.content, form) %>
+                  <%= render_input(element.type, form, value: element.content, class: 'form-control content-input') %>
                 </div> 
               </div>
 
@@ -87,7 +87,5 @@
         <% end %>
       </div>
     </div>
-
   </div>
-
 </div>
