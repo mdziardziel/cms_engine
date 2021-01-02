@@ -14,7 +14,7 @@ module CmsEngine
     belongs_to :template, class_name: 'CmsEngine::Template', foreign_key: 'cms_engine_template_id'
 
     def full_path
-      "/#{template.path}/#{path}".gsub("//", "/")
+      "/#{language}/#{template.path}/#{path}".gsub("//", "/")
     end
   end
 end
