@@ -30,15 +30,16 @@ $(window).on('load', function() {
 
   $(".element-type-selector").change(function() {
     const type = $(this).val()
-    const typeInputSelector = `#hidden-${type}-input:hidden`
-    const typeInput = $(typeInputSelector).clone()
+    const typeInputSelector = `#hidden-${type}-input`
+    const typeInputContainer = $(typeInputSelector).clone()
     const input = $(this).closest('.element-row').find('.content-input')
+    const inputContainer = $(this).closest('.element-row').find('.content-input-container')
     const inputId = input.attr('id')
-    typeInput.removeAttr('type')
+    const typeInput = typeInputContainer.find('.form-control')
     typeInput.attr('id', inputId)
     typeInput.removeClass('hidden-form')
     typeInput.addClass('content-input')
-    input.replaceWith(typeInput)
+    inputContainer.replaceWith(typeInputContainer)
   })
 });
 
