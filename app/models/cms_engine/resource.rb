@@ -8,8 +8,8 @@ module CmsEngine
 
     AVAILABLE_LANGUAGES = %w[pl en de ru]
     
-    validates :name, length: 2..255, uniqueness: true
-    validates :path, length: 2..255, uniqueness: true
+    validates :name, length: 2..255, uniqueness: { scope: :language }
+    validates :path, length: 2..255, uniqueness: { scope: [:language, :cms_engine_template_id] }
 
     belongs_to :template, class_name: 'CmsEngine::Template', foreign_key: 'cms_engine_template_id'
 
