@@ -50,7 +50,9 @@
               <div class="col">
                 <div class='form-group'>
                   <%= form.label t('cms_engine.resources.form.content') %>
-                  <%= render_input(element.type, form, value: element.content, class: 'form-control content-input') %>
+                  <div class='content-input-container'>
+                    <%= render_input(element.type, form, 'elements[][content]', value: element.content, class: 'form-control content-input') %>
+                  </div>
                 </div> 
               </div>
 
@@ -90,8 +92,10 @@
   </div>
 </div>
 
-<%= form_for :nothing, url: '', html: { class: 'hidden-form' } do |f| %>
+<%= form_for(:nothing, url: '', html: { class: 'hidden-form' }) do |f| %>
   <% CmsEngine::Element::TYPES.each do |type|%>
-    <%= render_input(type, f, id: "hidden-#{type}-input", type: 'hidden', class: 'form-control hidden-form') %>
+    <div id='<%= "hidden-#{type}-input" %>' class='content-input-container'>
+      <%= render_input(type, f, 'elements[][content]', class: 'form-control hidden-form') %>
+    </div>
   <% end %>
 <% end %>
