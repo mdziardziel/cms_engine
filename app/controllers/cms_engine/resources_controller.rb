@@ -25,6 +25,7 @@ module CmsEngine
         @resource = @resource.paper_trail.version_at(Time.zone.at(params[:version_timestamp].to_r))
       end
       @versions_datetimes = @resource.versions.order(created_at: :asc).pluck(:created_at).reverse
+      @resources_with_other_languages = CmsEngine::Resource.where(name: @resource.name).where.not(language: @resource.language)
     end
 
     # POST /resources

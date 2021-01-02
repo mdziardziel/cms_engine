@@ -18,6 +18,7 @@
         <tr>
           <th><%= t('cms_engine.resources.index.name') %></th>
           <th><%= t('cms_engine.resources.index.template') %></th>
+          <th><%= t('cms_engine.resources.index.language') %></th>
           <th><%= t('cms_engine.resources.index.path') %></th>
           <th><%= t('cms_engine.resources.index.last_edit') %></th>
           <th colspan="2"></th>
@@ -30,6 +31,7 @@
           <tr class="<%= last_template != resource.template ? 'first-template-row' : '' %>">
             <td><%= resource.name %></td>
             <td><%= resource.template.name %></td>
+            <td><%= resource.language %></td>
             <td><%= resource.full_path %></td>
             <td><%= resource.updated_at %></td>
             <td><%= link_to t('cms_engine.resources.index.edit'), edit_resource_path(resource) %></td>
