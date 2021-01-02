@@ -77,7 +77,12 @@
   </div>
   <div class='col-3 p-10'>
     <div class='row'>
-      <!-- TODO: display implemented languages -->
+      <h3><%= t('cms_engine.resources.form.languages') %></h3>
+      <div>
+        <% @resources_with_other_languages.each do |resource| %>
+          <%= link_to resource.language, edit_resource_path(resource), class: "btn btn-light mt-2"%>
+        <% end %>
+      </div>
     </div>
     <div class='row'>
       <h3><%= t('cms_engine.resources.form.versions') %></h3>

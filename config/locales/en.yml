@@ -71,6 +71,7 @@ en:
       edit: 
         title: edit Resource
         versions: Versions
+        languages: Languages
       form:
         errors_message: 'prohibited this resource from being saved:'
         name: name
