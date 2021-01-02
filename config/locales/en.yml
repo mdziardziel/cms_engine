@@ -58,6 +58,7 @@ en:
       index:
         name: Name
         path: Path
+        language: Language
         last_edited: Last edited
         edit: Edit
         destroy: Delete
