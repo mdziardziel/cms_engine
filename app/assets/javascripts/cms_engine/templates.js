@@ -11,23 +11,12 @@ const addElement = () => {
   const lastElement = $("#elements-card").find('.element-row:last');
   const newElement = lastElement.clone();
   newElement.find('input').val("");
+  newElement.find('.content-input-container').find('input').attr('id', Math.random().toString(36).substr(2, 5))
   newElement.find('select').val("");
   lastElement.after(newElement);
 }
 
-$(window).on('load', function() {
-  $("#add-element").click(function() {
-    addElement();
-
-    $(".remove-element").click(function() {
-      removeElement(this);
-    });
-  });
-
-  $(".remove-element").click(function() {
-    removeElement(this);
-  });
-
+const changeInput = () => {
   $(".element-type-selector").change(function() {
     const type = $(this).val()
     const typeInputSelector = `#hidden-${type}-input`
@@ -54,5 +43,22 @@ $(window).on('load', function() {
     typeInput.addClass('content-input')
     inputContainer.replaceWith(typeInputContainer)
   })
+}
+
+$(window).on('load', function() {
+  $("#add-element").click(function() {
+    addElement();
+    changeInput()
+
+    $(".remove-element").click(function() {
+      removeElement(this);
+    });
+  });
+
+  $(".remove-element").click(function() {
+    removeElement(this);
+  });
+
+  changeInput()
 });
 
