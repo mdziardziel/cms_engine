@@ -34,8 +34,21 @@ $(window).on('load', function() {
     const typeInputContainer = $(typeInputSelector).clone()
     const input = $(this).closest('.element-row').find('.content-input')
     const inputContainer = $(this).closest('.element-row').find('.content-input-container')
+    const inputName = input.attr('name')
     const inputId = input.attr('id')
     const typeInput = typeInputContainer.find('.form-control')
+
+    // html editor
+    const trixieEditor = typeInputContainer.find('trix-editor')
+
+    if (trixieEditor) {
+      trixieEditor.attr('input', inputId)
+      typeInput.attr('value', '')
+    }
+
+    // html editor
+
+    typeInput.attr('name', inputName)
     typeInput.attr('id', inputId)
     typeInput.removeClass('hidden-form')
     typeInput.addClass('content-input')

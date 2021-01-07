@@ -1,1 +1,2 @@
-<%= form.cktext_area key, options.merge(ckeditor: { language: 'uk', toolbar: 'mini'}) %>
+<%= form.text_field key, options.merge(type: 'hidden') %>
+<trix-editor input="<%= options[:id] %>"></trix-editor>
