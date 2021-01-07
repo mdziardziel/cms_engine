@@ -8,8 +8,6 @@ CmsEngine::Engine.routes.draw do
 
   devise_for :users, class_name: "CmsEngine::User", module: 'devise', skip: [:passwords]
 
-  # only for uploading files
-  # mount Ckeditor::Engine => '/ckeditor'
 
   # TODO - uncomment below, run `rake routes` -> generated routes should work - currently it doesn't work
   # devise_for :users, class_name: "CmsEngine::User", module: 'devise', skip: [:registrations, :passwords]
