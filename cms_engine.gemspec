@@ -34,5 +34,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'sqlite3' # required by devise
   spec.add_dependency 'jwt'
   spec.add_dependency 'active_model_serializers'
-  spec.add_dependency 'ckeditor'
+  spec.add_dependency 'trix-rails'
 end
