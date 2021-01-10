@@ -23,10 +23,6 @@
         <%= form.text_field :path, class: 'form-control'  %>
       </div>
 
-      <div class='form-group'>
-        <%= form.label t('cms_engine.resources.form.language') %>
-        <%= form.select :language, options_for_select(CmsEngine::Resource::AVAILABLE_LANGUAGES, @resource.language), {}, class: 'form-control' %>
-      </div>
       <br>
       <div class="card">
         <div id='elements-card' class="card-body">
