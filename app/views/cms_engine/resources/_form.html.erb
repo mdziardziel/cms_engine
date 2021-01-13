@@ -78,6 +78,7 @@
     <div class='row'>
       <h3><%= t('cms_engine.resources.form.languages') %></h3>
       <div>
+        <div class="btn btn-primary mt-2"><%= @resource.language %></div>
         <% @resources_with_other_languages.each do |resource| %>
           <%= link_to resource.language, edit_resource_path(resource), class: "btn btn-light mt-2"%>
         <% end %>
