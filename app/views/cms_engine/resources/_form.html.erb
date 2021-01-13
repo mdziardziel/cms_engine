@@ -28,7 +28,8 @@
         <div id='elements-card' class="card-body">
           <h5 class="card-title"><%= t('cms_engine.resources.form.elements') %></h5>
           <% @resource.elements.each do |element| %>
-            <div class="row element-row">
+          <div class='element-row'>
+            <div class="row">
               <div class="col">
                 <div class='form-group'>
                   <%= form.label t('cms_engine.resources.form.key') %>
@@ -42,7 +43,8 @@
                   <%= form.select 'elements[][type]', options_for_select(CmsEngine::Element::TYPES, element.type), {}, class: 'form-control element-type-selector' %>
                 </div>
               </div>
-          
+            </div>
+            <div class="row">
               <div class="col">
                 <div class='form-group'>
                   <%= form.label t('cms_engine.resources.form.content') %>
@@ -58,6 +60,7 @@
                 </div>
               </div>
             </div>
+          </div>
             <br>
           <% end %>
           <button type="button" id='add-element' class="btn btn-secondary float-right">
