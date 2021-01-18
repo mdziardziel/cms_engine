@@ -60,5 +60,7 @@ $(window).on('load', function() {
   });
 
   changeInput()
+
+  $('.trix-button--icon-attach').remove();
 });
 
