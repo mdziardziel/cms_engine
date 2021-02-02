@@ -7,9 +7,9 @@ module CmsEngine
     has_paper_trail versions: { class_name: 'CmsEngine::Version' }, on: [:update]
 
     AVAILABLE_LANGUAGES = I18n.available_locales
-    
+
     validates :name, length: 2..255, uniqueness: { scope: :language }
-    validates :path, length: 2..255, uniqueness: { scope: [:language, :cms_engine_template_id] }
+    validates :path, length: 2..255, uniqueness: { scope: [:language, :cms_engine_template_id] }, format: { with: /\A[a-zA-Z0-9-_]*\z/ }
 
     belongs_to :template, class_name: 'CmsEngine::Template', foreign_key: 'cms_engine_template_id'
 
