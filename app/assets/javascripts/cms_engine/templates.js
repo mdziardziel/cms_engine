@@ -1,6 +1,10 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
+const removeAttachButton = () => {
+  $('.trix-button--icon-attach').remove();
+}
+
 const removeElement = (self) => {
   if ($('.element-row').length > 1) {
     $(self).closest('.element-row').remove();
@@ -42,6 +46,7 @@ const changeInput = () => {
     typeInput.removeClass('hidden-form')
     typeInput.addClass('content-input')
     inputContainer.replaceWith(typeInputContainer)
+    removeAttachButton()
   })
 }
 
@@ -49,6 +54,7 @@ $(window).on('load', function() {
   $("#add-element").click(function() {
     addElement();
     changeInput()
+    removeAttachButton()
 
     $(".remove-element").click(function() {
       removeElement(this);
@@ -60,5 +66,6 @@ $(window).on('load', function() {
   });
 
   changeInput()
+  removeAttachButton()
 });
 
