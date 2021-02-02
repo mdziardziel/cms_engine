@@ -45,6 +45,8 @@ module CmsEngine
       if @resource.update(resource_params)
         redirect_to resources_url, notice: 'Resource was successfully updated.'
       else
+        @versions_datetimes = @resource.versions.order(created_at: :asc).pluck(:created_at).reverse  
+        @resources_with_other_languages = CmsEngine::Resource.where(name: @resource.name).where.not(language: @resource.language)
         render :edit
       end
     end
